@@ -8,6 +8,9 @@
   },
   "author": "Daniel Ogonowski",
   "license": "MIT",
+  "engines": {
+    "node": "8.11.3"
+  },
   "dependencies": {
     "bcrypt": "^3.0.0",
     "clarifai": "^2.8.1",
