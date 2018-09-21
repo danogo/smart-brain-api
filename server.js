@@ -25,10 +25,8 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(cors());
 
-app.get('/', (req, res) => {
-  res.json('Welcome guys');
-});
-
+// root route
+app.get('/', (req, res) => { res.send('Welcome to the server side, it is working!') });
 //sign in route
 app.post('/signin', (req, res) => { signin.handleSignIn(req, res, db, bcrypt) });
 // another syntax:
@@ -43,6 +41,6 @@ app.put('/image', (req, res) => { image.handleImage(req, res, db) });
 // make call to clarifai api and get our response
 app.post('/imageurl', (req, res) => { image.handleClarifaiCall(req, res) });
 
-app.listen(3000, () => {
-  console.log('smart-brain server is running on port 3000..');
+app.listen(process.env.PORT || 3000, () => {
+  console.log(`smart-brain server is running on port ${process.env.PORT}..`);
 });
